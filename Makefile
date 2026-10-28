@@ -66,6 +66,9 @@ ef-list:
 		--startup-project $(STARTUP_PROJECT) \
 		--context $(CONTEXT)
 
+# Create ef bundle to run the migration exe
+dotnet ef migrations bundle --self-contained -r linux-x64
+
 # Docker Compose commands
 docker-up:
 	docker compose up -d
