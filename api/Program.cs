@@ -42,6 +42,11 @@ app.MapGet("/weatherforecast", () =>
 })
 .WithName("GetWeatherForecast");
 
+app.MapGet("/coaches", async (AppDbContext ctx) =>
+{
+    return await ctx.Coaches.ToListAsync();
+});
+
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
